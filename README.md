@@ -31,7 +31,7 @@ This project provides a solution to the binary classification problem: predictin
 1. Numerical Features: Scaled using RobustScaler to reduce the effect of outliers.
 2. Categorical Features: Encoded using OrdinalEncoder.
 
-The function supports both training mode (is_train=True) and testing mode:
+### The function supports both training mode (is_train=True) and testing mode:
 
 1. In training mode, the function encodes and scales the features while saving the fitted parameters.
 2. In testing mode, it only transforms the data using the saved encoder and scaler.
