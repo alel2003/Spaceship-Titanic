@@ -14,56 +14,56 @@ Data Preprocessing
 
 The preprocessing is handled by the preprocess_data():
 
-    Handling Missing Values:
-        For numerical features, missing values are filled with the median.
-        For categorical features, missing values are filled with the most frequent value.
-    Splitting the "Cabin" Feature:
-        The Cabin feature is split into three new features: Deck, Cabin_num, and Side using .str.split().
-    Dropping Unnecessary Features:
-        Features such as Name and Cabin are dropped.
-    Converting Data Types:
-        The Age feature is converted to an integer type.
-        The Cabin_num feature is also converted to an integer type.
+1. Handling Missing Values:
+    For numerical features, missing values are filled with the median.
+    For categorical features, missing values are filled with the most frequent value.
+2. Splitting the "Cabin" Feature:
+    The Cabin feature is split into three new features: Deck, Cabin_num, and Side using .str.split().
+3. Dropping Unnecessary Features:
+    Features such as Name and Cabin are dropped.
+4. Converting Data Types:
+    The Age feature is converted to an integer type.
+    The Cabin_num feature is also converted to an integer type.
 
 
 Encoding and Scaling Features
 
 The function order_and_scale_features() is used to process categorical and numerical features:
 
-    Numerical Features: Scaled using RobustScaler to reduce the effect of outliers.
-    Categorical Features: Encoded using OrdinalEncoder.
+1. Numerical Features: Scaled using RobustScaler to reduce the effect of outliers.
+2. Categorical Features: Encoded using OrdinalEncoder.
 
 The function supports both training mode (is_train=True) and testing mode:
 
-    In training mode, the function encodes and scales the features while saving the fitted parameters.
-    In testing mode, it only transforms the data using the saved encoder and scaler.
+1. In training mode, the function encodes and scales the features while saving the fitted parameters.
+2. In testing mode, it only transforms the data using the saved encoder and scaler.
 
 Model Training
 
 The project uses two main machine learning models:
 
-    RandomForestClassifier: A straightforward and interpretable ensemble method.
+RandomForestClassifier: A straightforward and interpretable ensemble method.
     
-random_forest = RandomForestClassifier(
-    n_estimators=200,
-    max_features='sqrt',
-    min_samples_split=4,
-    min_samples_leaf=2,
-    random_state=42)
-random_forest.fit(X_train_final, y_train)
+    random_forest = RandomForestClassifier(
+        n_estimators=200,
+        max_features='sqrt',
+        min_samples_split=4,
+        min_samples_leaf=2,
+        random_state=42)
+    random_forest.fit(X_train_final, y_train)
 
 CatBoostClassifier: A gradient boosting algorithm that is particularly effective for categorical data.
 
-cgbdt = CatBoostClassifier(
-    iterations=200,
-    learning_rate=0.2,
-    random_seed=42,
-    verbose=200,
-    l2_leaf_reg=7
-)
-cgbdt.fit(X_train_final, y_train)
+    cgbdt = CatBoostClassifier(
+        iterations=200,
+        learning_rate=0.2,
+        random_seed=42,
+        verbose=200,
+        l2_leaf_reg=7
+    )
+    cgbdt.fit(X_train_final, y_train)
 
- Results
+📈 Results
 
 The best results were achieved using the CatBoostClassifier, with:
 
