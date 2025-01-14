@@ -1,18 +1,16 @@
-🚀 Spaceship Titanic - Kaggle Competition Solution
+# 🚢 Spaceship Titanic - Kaggle Competition Solution
 
 Welcome to my repository for the Spaceship Titanic Kaggle competition!
 This project provides a solution to the binary classification problem: predicting whether a passenger aboard the Spaceship Titanic was transported to another dimension (Transported = 1) or not (Transported = 0).
 
-📋 Project Description
-Goal
+## 📋 Project Description
 
-The goal is to build an accurate machine learning model to predict passenger transportation outcomes.
-The model processes the provided data, handles missing values, encodes categorical features, and scales numerical features to achieve high performance metrics.
+### The goal is to build an accurate machine learning model to predict passenger transportation outcomes.
+### The model processes the provided data, handles missing values, encodes categorical features, and scales numerical features to achieve high performance metrics.
 
-🛠️ Methodology
-Data Preprocessing
+## 🛠️ Methodology
 
-The preprocessing is handled by the preprocess_data():
+### The preprocessing is handled by the preprocess_data():
 
 1. Handling Missing Values:
     For numerical features, missing values are filled with the median.
@@ -26,9 +24,9 @@ The preprocessing is handled by the preprocess_data():
     The Cabin_num feature is also converted to an integer type.
 
 
-Encoding and Scaling Features
+## 🔋 Encoding and Scaling Features
 
-The function order_and_scale_features() is used to process categorical and numerical features:
+### The function order_and_scale_features() is used to process categorical and numerical features:
 
 1. Numerical Features: Scaled using RobustScaler to reduce the effect of outliers.
 2. Categorical Features: Encoded using OrdinalEncoder.
@@ -38,9 +36,9 @@ The function supports both training mode (is_train=True) and testing mode:
 1. In training mode, the function encodes and scales the features while saving the fitted parameters.
 2. In testing mode, it only transforms the data using the saved encoder and scaler.
 
-Model Training
+## 🚴🏻‍♂️ Model Training
 
-The project uses two main machine learning models:
+### The project uses two main machine learning models:
 
 RandomForestClassifier: A straightforward and interpretable ensemble method.
     
@@ -63,9 +61,9 @@ CatBoostClassifier: A gradient boosting algorithm that is particularly effective
     )
     cgbdt.fit(X_train_final, y_train)
 
-📈 Results
+## 📈 Results
 
-The best results were achieved using the CatBoostClassifier, with:
+### The best results were achieved using the CatBoostClassifier, with:
 
     Local validation accuracy: ~82%
     Kaggle public leaderboard score: ~0.79
